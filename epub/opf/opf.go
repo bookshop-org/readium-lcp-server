@@ -59,7 +59,7 @@ func (m Manifest) ItemWithPath(path string) (Item, bool) {
 	return Item{}, false
 }
 
-var unsupportedXMLDeclaration = regexp.MustCompile(`^<\?\s*xml\s+version\s*=\s*"\s*1.[1-9]\s*"`)
+var unsupportedXMLDeclaration = regexp.MustCompile(`^[\p{Cf}\p{Zs}]*<\?[\p{Cf}\p{Zs}]*xml[\p{Cf}\p{Zs}]+version[\p{Cf}\p{Zs}]*=[\p{Cf}\p{Zs}]*"[\p{Cf}\p{Zs}]*1.[1-9][\p{Cf}\p{Zs}]*"`)
 var supportedXMLDeclaration = []byte(`<?xml version="1.0"`)
 
 // Parse parses the opf xml struct and returns a Package object
